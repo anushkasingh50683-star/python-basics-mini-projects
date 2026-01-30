@@ -1,4 +1,7 @@
 import random
+print("Welcome to the Rock-Paper-Scissors Game")
+print("Let's start..")
+
 all_moves = ['Rock','Paper','Scissors']
 
 while True:
