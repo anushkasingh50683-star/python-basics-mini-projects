@@ -29,5 +29,7 @@ for i in range(no_of_symbols):
     special_symbs = symbs()
     password.append(special_symbs)
 
-print(password)
+random.shuffle(password)
 
+for i in password:
+    print(i , end = '')
