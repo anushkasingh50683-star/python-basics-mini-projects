@@ -23,13 +23,13 @@ no_of_symbols = int(input("How many symbols you want? "))
 
 def digits():
     numbers = random.choice(list_of_digits)
-    print(numbers , end = '')
+    return numbers
 def letters():
     characters = random.choice(list_of_letters)
-    print(characters , end ='')
+    return characters
 def symbs():
     special_symbs = random.choice(list_of_symbols)
-    print(special_symbs , end = '')
+    return symbs
 
 for i in range(no_of_digits):
     digits()
@@ -37,3 +37,4 @@ for i in range(no_of_letters):
     letters()
 for i in range(no_of_symbols):
     symbs()
+
