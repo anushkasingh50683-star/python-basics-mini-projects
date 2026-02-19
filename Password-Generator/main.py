@@ -13,7 +13,7 @@ while True :
     password = []
 
     try:
-        no_of_letters = int(input("How many letters you want?\n "))
+        no_of_letters = int(input("\nHow many letters you want?\n "))
         no_of_digits = int(input("How many digits you want?\n "))
         no_of_symbols = int(input("How many symbols you want?\n "))
      
@@ -46,7 +46,7 @@ while True :
             for i in password:
                 print(i , end = '')
             
-            break
+        break
 
     except ValueError:
         print("Please enter a valid number of times.")
