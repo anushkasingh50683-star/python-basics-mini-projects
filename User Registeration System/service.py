@@ -1,5 +1,6 @@
 from database import insert_user
 
+
 def register_user(name):
     name = name.strip()
 
