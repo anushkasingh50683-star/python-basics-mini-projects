@@ -29,6 +29,7 @@ def insert_data(name,marks):
 
 def view_all_data():
     conn = sqlite3.connect(DB_NAME)
+    conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
     cursor.execute("Select * from students")
