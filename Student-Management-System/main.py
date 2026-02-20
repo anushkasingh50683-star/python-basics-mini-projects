@@ -13,7 +13,7 @@ def main():
 ''')
     while True:
         try:
-            choice = int(input("Enter your choice"))
+            choice = int(input("Enter your choice : "))
 
             if choice == 1 :
                 name = input("Enter student name : ")
