@@ -1,6 +1,5 @@
 import sqlite3
 import os
-import sqlite3
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_NAME = os.path.join(BASE_DIR, "students.db")
@@ -27,8 +26,12 @@ def insert_data(name,marks):
         Insert into students (name,marks)Values(?,?)
     ''',(name,marks,))
 
+    #inserted_id = cursor.lastrowid
+
     conn.commit()
     conn.close()
+
+    return inserted_id
 
 def view_all_data():
     conn = sqlite3.connect(DB_NAME)
@@ -40,6 +43,19 @@ def view_all_data():
     rows = cursor.fetchall()
     conn.close()
      
+    return rows
+
+def update_student(id,new_name,new_marks):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute('update students set marks = ? , name = ? where id = ?',(new_marks,new_name,id))
+
+    rows = cursor.rowcount
+
+    conn.commit()
+    conn.close()
+
     return rows
    
 '''
