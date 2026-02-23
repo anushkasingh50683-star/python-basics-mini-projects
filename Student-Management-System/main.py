@@ -5,8 +5,8 @@ def main():
     create_table()
 
     print('''
-        Welcome to Student Dashboard !
-        Select your choice :-
+        Welcome to Student Dashboard !\n\n
+        Select your choice :-\n
         1. Add students data 
         2. View all data 
         3. Update student name or marks 
@@ -15,16 +15,19 @@ def main():
 ''')
     while True:
         try:
-            choice = int(input("Enter your choice : "))
+            choice = int(input("\nEnter your choice : "))
 
             if choice == 1 :
+                print("\nInserting data..\n")
                 name = input("Enter student name : ")
                 marks = input('Enter student marks : ')
                 
                 message = add_student(name,marks)
                 print(message)
+                print()
 
             elif choice == 2:
+                print("\nViewing all data..\n")
                 data = get_all_students()
 
                 if isinstance(data,str):
@@ -34,27 +37,31 @@ def main():
                         print(student["id"],student["name"],student["marks"])
 
             elif choice == 3 :
+                print("\nUpdating data..\n")
                 id = input("Enter student id = ")
                 new_name = input("Enter updated name = ")
                 new_marks = input("Enter updated marks = ")
 
                 updated = update_student_data(id,new_name,new_marks)
                 print(updated)
+                print()
 
             elif choice == 4:
+                print("\nDeleting data..\n")
                 id = input("Enter student id = ")
 
                 confirm = input("Are you sure to delete ? (y/n)").lower()
                 if confirm == 'y' or confirm == 'yes':
                     deletion = delete_student_data(id)
                     print(deletion)
+                    print()
                 elif confirm == 'n' or confirm == 'no':
                     print("Make sure before deleting...")
                 else:
                     print("Enter a valid choice")
 
             elif choice == 5:
-                print("Thank you !")
+                print("\n\nThank you !")
                 break
 
             else:

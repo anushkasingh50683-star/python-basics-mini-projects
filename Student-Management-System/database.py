@@ -31,7 +31,7 @@ def insert_data(name,marks):
     conn.commit()
     conn.close()
 
-    return inserted_id
+    #return inserted_id
 
 def view_all_data():
     conn = sqlite3.connect(DB_NAME)
