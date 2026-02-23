@@ -1,6 +1,4 @@
-from database import view_all_data
-from database import insert_data
-from database import update_student
+from database import view_all_data,insert_data,update_student,delete_student
 
 def add_student(name,marks):
     name = name.strip()
@@ -21,8 +19,6 @@ def add_student(name,marks):
     insert_data(name,marks)
 
     return "Data entered successfully!"
-
-#delete_student()
 
 def get_all_students():
     rows = view_all_data()
@@ -59,3 +55,17 @@ def update_student_data(id,new_name,new_marks):
         return "Student not found"
     else:
         return "Student data updated successfully!"
+
+def delete_student_data(id):
+    try:
+        id = int(id)
+    except ValueError:
+        return "Invalid id"
+    
+    rows = delete_student(id)
+
+    if rows == 0:
+        return "Student not found"
+    else:
+        return "Student data deleted successfully!"
+    
