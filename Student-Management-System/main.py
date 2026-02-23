@@ -1,5 +1,5 @@
 from database import create_table
-from service import add_student,get_all_students
+from service import add_student,get_all_students,update_student_data
 
 def main():
     create_table()
@@ -9,7 +9,8 @@ def main():
         Select your choice :-
         1. Add students data 
         2. View all data 
-        3. Exit
+        3. Update student name or marks 
+        4. Exit
 ''')
     while True:
         try:
@@ -32,6 +33,14 @@ def main():
                         print(student["id"],student["name"],student["marks"])
 
             elif choice == 3 :
+                id = input("Enter student id = ")
+                new_name = input("Enter updated name = ")
+                new_marks = input("Enter updated marks = ")
+
+                updated = update_student_data(id,new_name,new_marks)
+                print(updated)
+
+            elif choice == 4:
                 print("Thank you !")
                 break
 
@@ -40,6 +49,8 @@ def main():
         
         except ValueError:
             print("Please enter a valid choice")
+
+
 
 if __name__ == "__main__":
     main()
