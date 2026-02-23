@@ -1,5 +1,5 @@
 from database import create_table
-from service import add_student,get_all_students,update_student_data
+from service import add_student,get_all_students,update_student_data,delete_student_data
 
 def main():
     create_table()
@@ -10,7 +10,8 @@ def main():
         1. Add students data 
         2. View all data 
         3. Update student name or marks 
-        4. Exit
+        4. Delete student data
+        5. Exit
 ''')
     while True:
         try:
@@ -41,6 +42,18 @@ def main():
                 print(updated)
 
             elif choice == 4:
+                id = input("Enter student id = ")
+
+                confirm = input("Are you sure to delete ? (y/n)").lower()
+                if confirm == 'y' or confirm == 'yes':
+                    deletion = delete_student_data(id)
+                    print(deletion)
+                elif confirm == 'n' or confirm == 'no':
+                    print("Make sure before deleting...")
+                else:
+                    print("Enter a valid choice")
+
+            elif choice == 5:
                 print("Thank you !")
                 break
 
