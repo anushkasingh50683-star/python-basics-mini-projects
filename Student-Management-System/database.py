@@ -57,7 +57,19 @@ def update_student(id,new_name,new_marks):
     conn.close()
 
     return rows
-   
+
+def delete_student(id):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+
+    cursor.execute("delete from students where id = ?",(id,))
+
+    rows = cursor.rowcount
+
+    conn.commit()
+    conn.close()
+
+    return rows
 '''
 cursor.execute() expects parameters as a sequence (tuple or list).
 And tuples are created using commas.
